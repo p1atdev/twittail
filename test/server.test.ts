@@ -13,11 +13,11 @@ Deno.test("server status should be 200 on /", async () => {
 
   assertEquals(shouldBe200, 200);
 
-  assertEquals(await res.text(), "Twittail API");
+  assertEquals(await res.text(), "Twittail Server!");
 });
 
 Deno.test("server status should be 200 on /twitter", async () => {
-  const res = await fetch(`http://localhost:${port}/twitter`);
+  const res = await fetch(`http://localhost:${port}/v1/twitter`);
 
   const shouldBe200 = res.status;
 
@@ -25,7 +25,7 @@ Deno.test("server status should be 200 on /twitter", async () => {
 });
 
 Deno.test("fetch user @deno_land", async () => {
-  const res: User = await fetch(`http://localhost:${port}/deno_land`).then((
+  const res: User = await fetch(`http://localhost:${port}/v1/deno_land`).then((
     res,
   ) => res.json());
 

@@ -5,10 +5,10 @@ export const start = async (port?: number) => {
   const router = new Router();
 
   router.get("/", (ctx) => {
-    ctx.response.body = "Twittail API";
+    ctx.response.body = "Twittail Server!";
   });
 
-  router.get("/:userName", async (ctx) => {
+  router.get("/v1/:userName", async (ctx) => {
     const userName = ctx.params.userName;
 
     if (!userName) {
