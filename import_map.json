@@ -1,5 +1,5 @@
 {
-    "imports": {
-        "twitterql/types/": "https://deno.land/x/twitterql@0.2.1-alpha.1/src/types/"
-    }
+  "imports": {
+    "twitterql/types/": "https://deno.land/x/twitterql@0.2.1-alpha.1/src/types/"
+  }
 }
