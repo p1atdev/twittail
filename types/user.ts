@@ -72,7 +72,12 @@ export type Profile = {
   /**
    * ユーザープロフィールのurl
    */
-  url: string;
+  profileUrl: string;
+
+  /**
+   * webサイトリンクをつけてるときのurl
+   */
+  website: WebSite;
 
   /**
    * 認証済みか
@@ -149,4 +154,21 @@ export type Profile = {
    * 鍵垢か
    */
   isProtected: boolean;
+};
+
+export type WebSite = {
+  /**
+   * 表示上のurl
+   */
+  displayUrl: string;
+
+  /**
+   * httpsとかがついたurl
+   */
+  expandedUrl: string;
+
+  /**
+   * 短縮url
+   */
+  shortenedUrl: string;
 };

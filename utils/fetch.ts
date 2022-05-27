@@ -1,5 +1,5 @@
 import { fetchUserData } from "./http.ts";
-import { Avatar, Banner, Profile, User } from "../types/mod.ts";
+import { Avatar, Banner, Profile, User, WebSite } from "../types/mod.ts";
 
 export const fetchUser = async (userName: string): Promise<User> => {
   const res = await fetchUserData(userName);
@@ -9,7 +9,7 @@ export const fetchUser = async (userName: string): Promise<User> => {
   }
 
   const avatar: Avatar = {
-    url: res.result.legacy.profile_image_url_https,
+    url: res.result.legacy.profile_image_url_https.replace("_normal", ""), // delete _normal
     isDefaultIcon: res.result.legacy.default_profile_image,
     isNFT: res.result.has_nft_avatar,
   };
@@ -18,12 +18,38 @@ export const fetchUser = async (userName: string): Promise<User> => {
     url: res.result.legacy.profile_banner_url,
   };
 
+  const webSite: WebSite = (() => {
+    try {
+      const urls = res.result.legacy.entities.url.urls;
+      if (urls.length === 0) {
+        return {
+          shortenedUrl: "",
+          expandedUrl: "",
+          displayUrl: "",
+        };
+      } else {
+        return {
+          shortenedUrl: urls[0].url,
+          expandedUrl: urls[0].expanded_url,
+          displayUrl: urls[0].display_url,
+        };
+      }
+    } catch {
+      return {
+        shortenedUrl: "",
+        expandedUrl: "",
+        displayUrl: "",
+      };
+    }
+  })();
+
   const profile: Profile = {
     userName: res.result.legacy.name,
     userId: res.result.legacy.screen_name,
     userRestId: res.result.rest_id,
     description: res.result.legacy.description,
-    url: res.result.legacy.url,
+    profileUrl: res.result.legacy.url,
+    website: webSite,
     isVerified: res.result.legacy.verified,
     followersCount: res.result.legacy.followers_count,
     fastFollowersCount: res.result.legacy.fast_followers_count,
