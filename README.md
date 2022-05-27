@@ -4,6 +4,18 @@ Twitter API wrapper server for getting user detail information.
 
 ## Usage
 
+### As a module
+
+```ts
+import { fetchUser } from "https://deno.land/x/twittail@v0.1.0/mod.ts"
+
+const denoland = await fetchUser("denoland")
+
+console.log(denoland)
+```
+
+### As a server
+
 ```bash
 $ deno task start
 ```
@@ -13,7 +25,7 @@ $ curl http://localhost:8000
 Twittail Server!
 ```
 
-### Verified User
+#### Verified User
 
 `@deno_land`
 
@@ -116,7 +128,7 @@ $ curl http://localhost:8000/v1/AKEndfieldJP | jq
 }
 ```
 
-### NFT Avatar User
+#### NFT Avatar User
 
 `@TwitterBlue`
 
@@ -166,7 +178,7 @@ $  curl http://localhost:8000/v1/twitterblue | jq
 }
 ```
 
-### Default Avatar User
+#### Default Avatar User
 
 `@TOS`
 
