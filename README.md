@@ -7,11 +7,11 @@ Twitter API wrapper server for getting user detail information.
 ### As a module
 
 ```ts
-import { fetchUser } from "https://deno.land/x/twittail@v0.1.0/mod.ts"
+import { fetchUser } from "https://deno.land/x/twittail@v0.1.0/mod.ts";
 
-const deno_land = await fetchUser("deno_land")
+const deno_land = await fetchUser("deno_land");
 
-console.log(deno_land)
+console.log(deno_land);
 ```
 
 ### As a server
