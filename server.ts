@@ -1,3 +1,5 @@
 import { Server } from "./utils/mod.ts";
 
-await Server.start();
+console.log("Deno version:", Deno.version);
+
+Server.start();

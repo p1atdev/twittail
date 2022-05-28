@@ -34,7 +34,7 @@ export const start = async (port?: number) => {
   app.use(router.routes());
   app.use(router.allowedMethods());
 
-  await app.listen({ port: port ?? 8000 });
+  console.log(`Server started on http://localhost:${port ?? 8000}`);
 
-  console.log(`Server started on http://localhost:${port}`);
+  await app.listen({ port: port ?? 8000 });
 };
