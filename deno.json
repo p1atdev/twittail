@@ -3,7 +3,7 @@
     "start": "deno run --allow-net ./server.ts",
     "dev": "deno run -A --watch ./server.ts",
     "cache": "deno cache ./deps.ts",
-    "test": "deno test -A"
+    "test": "deno test -A --trace-ops"
   },
   "importMap": "./import_map.json"
 }
